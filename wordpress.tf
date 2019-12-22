@@ -1,5 +1,5 @@
 resource "aws_instance" "wordpress" { 
-  ami             = "ami-00068cd7555f543d5" #centos
+  ami             = "ami-00068cd7555f543d5" #
   instance_type   = "t2.micro"
   associate_public_ip_address = "true"
   key_name = aws_key_pair.key_resource.key_name
@@ -7,7 +7,7 @@ resource "aws_instance" "wordpress" {
   user_data = file("userdata_file")
 
 provisioner "local-exec" { #it'll download locally 
-    command = "echo ${aws_instance.wordpress.private_ip} >> private_ips.txt"
+    command = "wget https://wordpress.org/latest.tar.gz"
 }
 
 
