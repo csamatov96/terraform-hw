@@ -1,1 +1,0 @@
-variable "private_ip" {}
