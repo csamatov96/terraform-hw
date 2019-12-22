@@ -1,0 +1,1 @@
+private_ip = "~/.ssh/id_rsa"
