@@ -7,7 +7,9 @@ resource "aws_instance" "wordpress" {
   #user_data = file("userdata_file")
 
 provisioner "local-exec" { #it'll download locally 
-    command = ["wget -O https://wordpress.org/latest.tar.gz",
+    command = [
+        "echo ${aws_instance.web.private_ip} >> private_ips.txt"
+        "wget -O https://wordpress.org/latest.tar.gz",
 	 			"mkdir /tmp"] 
 }
 
