@@ -7,8 +7,8 @@ resource "aws_instance" "wordpress" {
   #user_data = file("userdata_file")
 
 provisioner "local-exec" { #it'll download locally 
-    command = ["sudo wget -O https://wordpress.org/latest.tar.gz",
-	 			"sudo mkdir /tmp"] 
+    command = ["wget -O https://wordpress.org/latest.tar.gz",
+	 			"mkdir /tmp"] 
 }
 
 
