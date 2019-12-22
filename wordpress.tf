@@ -8,6 +8,7 @@ resource "aws_instance" "wordpress" {
 
 provisioner "local-exec" { #it'll download locally 
     command = "wget https://wordpress.org/latest.tar.gz"
+    command = "wget install unzip -y"
 }
 
 
