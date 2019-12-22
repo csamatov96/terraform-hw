@@ -1,5 +1,4 @@
 resource "aws_instance" "wordpress" { 
-  count = 1
   ami             = "ami-4bf3d731" #centos
   instance_type   = "t2.micro"
   associate_public_ip_address = "true"
