@@ -1,2 +1,5 @@
-user = "ec2-user"
+user = "ec2"
 ssh_key_location = "~/.ssh/id_rsa"
+ami             =          "ami-00068cd7555f543d5"
+instance_type   =          "t2.micro"
+associate_public_ip_address     = "true"

@@ -1,24 +1,24 @@
 resource "aws_instance" "wordpress" { 
-  ami             = "ami-00068cd7555f543d5" #
-  instance_type   = "t2.micro"
-  associate_public_ip_address = "true"
+  ami             = var.ami #
+  instance_type   = var.instance_type
+  associate_public_ip_address = var.associate_public_ip_address
   key_name = aws_key_pair.key_resource.key_name
   security_groups = ["sg"] #refer only by its name not resource name
   user_data = file("userdata_file")
 
   #terraform side 
-  #provisioner "local-exec" { 
-  #  command = "wget https://wordpress.org/latest.zip"
-  #}
-  #provisioner "local-exec" { # 
-  #  command = "sudo yum install unzip -y"
-  #}
-  #provisioner "local-exec" { # 
-  #  command = "sudo unzip latest.zip" #/root/terraform-hw/wordpress
-  #}
+  provisioner "local-exec" { 
+    command = "wget https://wordpress.org/latest.zip"
+  }
+  provisioner "local-exec" { # 
+    command = "sudo yum install unzip -y"
+  }
+  provisioner "local-exec" { # 
+    command = "sudo unzip latest.zip" #/root/terraform-hw/wordpress
+  }
 
   provisioner "file" {
-      source      = "wordpress"
+      source      = "awx"
       destination = "/tmp/"
       connection {
          host        = self.public_ip
