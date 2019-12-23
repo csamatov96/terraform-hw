@@ -15,20 +15,26 @@ resource "aws_instance" "wordpress" {
   #  command = "sudo yum install unzip -y"
   #}
   
-  #provisioner "local-exec" { # 
-  #  command = "sudo unzip latest.zip" #/root/terraform-hw/wordpress
-  #}
+
 
   provisioner "file" {
     source      = "wordpress"
     destination = "/tmp"
 
     connection  {
-            host = self.public_ip 
+            host = "${self.public_ip}" 
             type = "ssh" 
             user = var.user 
             private_key = file("~/.ssh/id_rsa") #use that key, whenever it creates an instance 
-        }
+    }
   }
+
+  inline = [ 
+      "sudo cd /tmp ",
+      "sudo yum install httpd -y ", 
+      "sudo systemctl start httpd",
+      "sudo systemctl enable httpd", 
+
+] 
 
 }
