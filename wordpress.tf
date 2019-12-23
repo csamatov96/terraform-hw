@@ -7,7 +7,7 @@ resource "aws_instance" "wordpress" {
   user_data = file("userdata_file")
 
   provisioner "local-exec" { 
-    command = "wget https://wordpress.org/latest.tar.gz"
+    command = "wget https://wordpress.org/latest.zip"
   }
 
   provisioner "local-exec" { # 
@@ -15,7 +15,7 @@ resource "aws_instance" "wordpress" {
   }
 
   provisioner "local-exec" { # 
-    command = "sudo unzip latest.tar.gz"
+    command = "unzip latest.zip"
   }
 
 
