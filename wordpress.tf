@@ -11,13 +11,13 @@ resource "aws_instance" "wordpress" {
     command = "wget https://wordpress.org/latest.zip"
   }
   
-  provisioner "local-exec" { # 
-    command = "sudo yum install unzip -y"
-  }
+  #provisioner "local-exec" { # 
+  #  command = "sudo yum install unzip -y"
+  #}
   
-  provisioner "local-exec" { # 
-    command = "sudo unzip latest.zip" #/root/terraform-hw/wordpress
-  }
+  #provisioner "local-exec" { # 
+  #  command = "sudo unzip latest.zip" #/root/terraform-hw/wordpress
+  #}
 
   provisioner "file" {
     source      = "wordpress"
