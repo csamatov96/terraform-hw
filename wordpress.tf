@@ -29,12 +29,5 @@ resource "aws_instance" "wordpress" {
     }
   }
 
-  inline = [ 
-      "sudo cd /tmp ",
-      "sudo yum install httpd -y ", 
-      "sudo systemctl start httpd",
-      "sudo systemctl enable httpd", 
-
-] 
 
 }
