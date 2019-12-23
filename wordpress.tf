@@ -19,4 +19,4 @@ resource "aws_instance" "wordpress" {
     command = "sudo unzip latest.zip" #/root/terraform-hw/wordpress
   }
 
-}å
+}
