@@ -17,17 +17,16 @@ resource "aws_instance" "wordpress" {
     command = "sudo unzip latest.zip" #/root/terraform-hw/wordpress
   }
 
-  provisioner "file" { 
-      source      = "/root/terraform-hw/FOLDER" 
-      destination = "/tmp" 
-      connection { 
-         host        = "${self.public_ip}" 
-         type        = "ssh" 
-         user        = "${var.user}" 
-         private_key = "${file(var.ssh_key_location)}"
-
-      } 
- }
+  provisioner "file" {
+      source      = "wordpress"
+      destination = "/tmp/"
+      connection {
+         host        = self.public_ip
+         type        = "ssh"
+         user        = var.user
+         private_key = file(var.ssh_key_location)
+      }
+  }
   
 
 
