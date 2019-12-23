@@ -13,7 +13,7 @@ resource "aws_instance" "wordpress" {
 
   provisioner "file" {
     source      = "copied.txt"
-    destination = "/tmp"
+    destination = "/"
 
     connection  {
             host = "${self.public_ip}" 
