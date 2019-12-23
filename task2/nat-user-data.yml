@@ -1,8 +1,0 @@
-#!/bin/bash
-# Script for adding static nat rules to the instance provisioned 
-# by the terraform script
-
-sudo iptables --table nat --append PREROUTING ! -s 10.10.0.0/16 \
-    --protocol tcp --dport 80 --jump DNAT --to-destination 10.10.1.10:80
-sudo iptables --table nat --append PREROUTING ! -s 10.10.0.0/16 \
-    --protocol tcp --dport 443 --jump DNAT --to-destination 10.10.1.10:443
