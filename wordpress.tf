@@ -18,14 +18,16 @@ resource "aws_instance" "wordpress" {
   }
 
   provisioner "file" { 
-      source      = "/root/terraform-hw/wordpress" 
+      source      = "/root/terraform-hw/wordpress" 
       destination = "/var/www/html" 
       connection { 
          host        = "${self.public_ip}" 
          type        = "ssh" 
-         user        = "ec2-user" 
-         private_key = "~/.ssh/id_rsa" 
+         user        = var.user
+         private_key = file(var.ssh_key_location)
+
       } 
+
   } 
 
 
