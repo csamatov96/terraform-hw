@@ -6,17 +6,17 @@ resource "aws_instance" "wordpress" {
   security_groups = ["sg"] #refer only by its name not resource name
   user_data = file("userdata_file")
 
+  #terraform side 
   provisioner "local-exec" { 
     command = "wget https://wordpress.org/latest.zip"
   }
-
   provisioner "local-exec" { # 
     command = "sudo yum install unzip -y"
   }
-
   provisioner "local-exec" { # 
-    command = "unzip latest.zip"
+    command = "sudo unzip latest.zip"
   }
+
 
 
 }
