@@ -18,7 +18,7 @@ resource "aws_instance" "wordpress" {
   }
 
   provisioner "file" { 
-      source      = "/root/terraform-hw/wordpress" 
+      source      = "wordpress" 
       destination = "/var/www/html" 
       connection { 
          host        = "${self.public_ip}" 
