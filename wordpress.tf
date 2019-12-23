@@ -4,28 +4,22 @@ resource "aws_instance" "wordpress" {
   associate_public_ip_address = var.associate_public_ip_address
   key_name = aws_key_pair.key_resource.key_name
   security_groups = ["sg"] #refer only by its name not resource name
-  user_data = file("userdata_file")
+  user_data = file("userdata_file.sh")
 
   #terraform side 
   provisioner "local-exec" { 
     command = "wget https://wordpress.org/latest.zip"
   }
-  
-  #provisioner "local-exec" { # 
-  #  command = "sudo yum install unzip -y"
-  #}
-  
-
 
   provisioner "file" {
-    source      = "wordpress"
+    source      = "latest.zip"
     destination = "/tmp"
 
     connection  {
             host = "${self.public_ip}" 
             type = "ssh" 
-            user = var.user 
-            private_key = file("~/.ssh/id_rsa") #use that key, whenever it creates an instance 
+            user = "${var.user}" 
+            private_key = "${file(var.ssh_key_location)}" #use that key, whenever it creates an instance 
     }
   }
 

@@ -1,5 +1,6 @@
-user = "ec2"
+user = "centos"
 ssh_key_location = "~/.ssh/id_rsa"
-ami             =          "ami-00068cd7555f543d5"
+ami             =          "ami-02eac2c0129f6376b"
 instance_type   =          "t2.micro"
 associate_public_ip_address     = "true"
+ssh_key_location  = "/root/.ssh/id_rsa" 
