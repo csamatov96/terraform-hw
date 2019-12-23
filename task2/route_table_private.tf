@@ -8,6 +8,6 @@ resource "aws_route_table" "r2" {
 
 
   tags = {
-    Name = "route tables2"
+    Name = "route table private"
   }
 }
