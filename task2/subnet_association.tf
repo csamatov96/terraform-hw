@@ -5,7 +5,3 @@ resource "aws_route_table_association" "a" {
   route_table_id = aws_route_table.r.id
 }
 
-resource "aws_route_table_association" "b" {
-  gateway_id     = aws_internet_gateway.gw.id
-  route_table_id = aws_route_table.r.id
-}
