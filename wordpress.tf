@@ -6,12 +6,12 @@ resource "aws_instance" "wordpress" {
   security_groups = ["sg"] #refer only by its name not resource name
   user_data = file("userdata_file")
 
-provisioner "local-exec" { #it'll download locally 
-    command = ["wget https://wordpress.org/latest.tar.gz",
-}
+  provisioner "local-exec" { 
+    command = "wget https://wordpress.org/latest.tar.gz"
+  }
 
-provisioner "local-exec" { #it'll download locally 
-    command = ["wget unzip -y"
-}
+  provisioner "local-exec" { #it'll download locally 
+    command = "wget unzip -y"
+  }
 
 }
