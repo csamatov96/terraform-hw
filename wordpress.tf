@@ -14,8 +14,19 @@ resource "aws_instance" "wordpress" {
     command = "sudo yum install unzip -y"
   }
   provisioner "local-exec" { # 
-    command = "sudo unzip latest.zip"
+    command = "sudo unzip latest.zip" #/root/terraform-hw/wordpress
   }
+
+  provisioner "file" { 
+      source      = "/root/terraform-hw/wordpress" 
+      destination = "/var/www/html" 
+      connection { 
+         host        = "${self.public_ip}" 
+         type        = "ssh" 
+         user        = "ec2-user" 
+         private_key = "~/.ssh/id_rsa" 
+      } 
+  } 
 
 
 

@@ -1,7 +1,6 @@
 #!/bin/bash
-sudo yum install wget -y 
 sudo yum install httpd -y 
 sudo systemctl start httpd
-wget https://wordpress.org/latest.tar.gz
+
 
 
