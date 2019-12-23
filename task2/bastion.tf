@@ -5,7 +5,7 @@ resource "aws_instance" "web" {
   associate_public_ip_address = "true"
   key_name = aws_key_pair.key_resource.key_name
 #  security_groups = ["allow_ssh_http"] #refer only by its name not resource name
-  vpc_security_group_ids = ["${aws_security_group.allow_ssh_http.id}"]
+  vpc_security_group_ids = ["${aws_security_group.sec_group.id}"]
 
   lifecycle{
     prevent_destroy = false
