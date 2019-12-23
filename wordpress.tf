@@ -11,11 +11,11 @@ resource "aws_instance" "wordpress" {
   }
 
   provisioner "local-exec" { # 
-    command = "wget unzip"
+    command = "sudo yum install unzip -y"
   }
 
   provisioner "local-exec" { # 
-    command = "unzip latest.tar.gz"
+    command = "sudo unzip latest.tar.gz"
   }
 
 
