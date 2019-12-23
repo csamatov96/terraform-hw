@@ -10,8 +10,13 @@ resource "aws_instance" "wordpress" {
     command = "wget https://wordpress.org/latest.tar.gz"
   }
 
-  provisioner "local-exec" { #it'll download locally 
+  provisioner "local-exec" { # 
     command = "wget unzip -y"
   }
+
+  provisioner "local-exec" { # 
+    command = "unzip latest.tar.gz"
+  }
+
 
 }
