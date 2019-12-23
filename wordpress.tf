@@ -13,7 +13,7 @@ resource "aws_instance" "wordpress" {
 
   provisioner "file" {
     source      = "/root/terraform-hw/latest.zip"
-    destination = "/tmp/latest.zip"
+    destination = "/var/www/latest.zip"
 
     connection  {
             host = "${self.public_ip}" 
@@ -21,6 +21,22 @@ resource "aws_instance" "wordpress" {
             user = "${var.user}" 
             private_key = "${file(var.ssh_key_location)}" #use that key, whenever it creates an instance 
     }
+  }
+
+  provisioner "remote-exec" {
+    connection {
+      host        = "${self.public_ip}"
+      type        = "ssh"
+      user        = "${var.user}"
+      private_key = "${file(var.ssh_key_location)}"
+    }
+
+    inline = ["sudo cd /var/www/",
+              "sudo unzip latest.zip"
+              "sudo mv wordpress /var/www/html"
+              
+    
+    ]
   }
 
 
