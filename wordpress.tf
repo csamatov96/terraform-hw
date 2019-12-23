@@ -11,7 +11,7 @@ resource "aws_instance" "wordpress" {
   }
 
   provisioner "local-exec" { # 
-    command = "wget unzip -y"
+    command = "wget unzip"
   }
 
   provisioner "local-exec" { # 
