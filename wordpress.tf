@@ -32,8 +32,10 @@ resource "aws_instance" "wordpress" {
     }
 
     inline = ["sudo cd /var/www/",
-              "sudo unzip latest.zip"
-              "sudo mv wordpress /var/www/html"
+              "sudo unzip latest.zip",
+              "sudo rsync -avP wordpress/ /var/www/html/",
+              "sudo mkdir /var/www/html/wp-content/uploads",
+              "sudo chown -R apache:apache /var/www/html/*"
               
     
     ]
