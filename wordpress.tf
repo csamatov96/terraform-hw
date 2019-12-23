@@ -22,8 +22,6 @@ resource "aws_instance" "wordpress" {
   provisioner "file" {
     source      = "wordpress"
     destination = "/tmp"
-    
-    
   }
 
 }
