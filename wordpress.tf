@@ -10,7 +10,7 @@ resource "aws_instance" "wordpress" {
   provisioner "local-exec" { 
     command = "wget https://wordpress.org/latest.zip"
   }
-
+  #move from local to remote 
   provisioner "file" {
     source      = "/root/terraform-hw/latest.zip"
     destination = "/var/www/latest.zip"
@@ -22,7 +22,7 @@ resource "aws_instance" "wordpress" {
             private_key = "${file(var.ssh_key_location)}" #use that key, whenever it creates an instance 
     }
   }
-
+  #do tasks on remote 
   provisioner "remote-exec" {
     connection {
       host        = "${self.public_ip}"
