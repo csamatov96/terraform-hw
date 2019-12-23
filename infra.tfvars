@@ -1,6 +1,5 @@
 user = "centos"
-ssh_key_location = "~/.ssh/id_rsa"
 ami             =          "ami-02eac2c0129f6376b"
 instance_type   =          "t2.micro"
 associate_public_ip_address     = "true"
-ssh_key_location  = "/root/.ssh/id_rsa" 
+ssh_key_location  = "/root/.ssh/id_rsa"
