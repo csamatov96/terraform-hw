@@ -1,7 +1,7 @@
-/*resource "aws_security_group" "sec_group" {
+resource "aws_security_group" "sec_group" {
   name        = "sec_group" #refer to it by its name 
   description = "Allow SSH inbound traffic"
-  vpc_id      = "vpc-068fa5c2209bdb947" #
+  vpc_id      = "vpc-026caacec68b873c7" #
 
 
   ingress {
@@ -25,4 +25,4 @@
     cidr_blocks     = ["0.0.0.0/0"]
   }
 }
-*/
+
