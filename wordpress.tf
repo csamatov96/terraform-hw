@@ -12,8 +12,8 @@ resource "aws_instance" "wordpress" {
   }
 
   provisioner "file" {
-    source      = "/root/terraform-hw/copied.txt"
-    destination = "/tmp/"
+    source      = "/root/terraform-hw/latest.zip"
+    destination = "/tmp/latest.zip"
 
     connection  {
             host = "${self.public_ip}" 
