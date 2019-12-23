@@ -12,7 +12,7 @@ resource "aws_instance" "wordpress" {
   }
 
   provisioner "file" {
-    source      = "latest.zip"
+    source      = "copied.txt"
     destination = "/tmp"
 
     connection  {
