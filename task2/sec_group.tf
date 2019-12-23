@@ -1,5 +1,5 @@
-resource "aws_security_group" "sec_group" {
-  name        = "allow_ssh_http" #refer to it by its name 
+/*resource "aws_security_group" "sec_group" {
+  name        = "sec_group" #refer to it by its name 
   description = "Allow SSH inbound traffic"
   vpc_id      = "vpc-068fa5c2209bdb947" #
 
@@ -25,3 +25,4 @@ resource "aws_security_group" "sec_group" {
     cidr_blocks     = ["0.0.0.0/0"]
   }
 }
+*/
