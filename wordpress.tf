@@ -19,7 +19,7 @@ resource "aws_instance" "wordpress" {
 
   provisioner "file" { 
       source      = "wordpress" 
-      destination = "/var/www/html" 
+      destination = "/tmp" 
       connection { 
          host        = "${self.public_ip}" 
          type        = "ssh" 
@@ -27,8 +27,8 @@ resource "aws_instance" "wordpress" {
          private_key = file(var.ssh_key_location)
 
       } 
-
-  } 
+ }
+  
 
 
 
